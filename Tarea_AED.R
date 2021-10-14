@@ -165,3 +165,7 @@ data$am <- as.factor(data$am)
 table(data$am)
 
 data$wtkg <- data$wt * 0.45362
+
+data1 <- data[,c(1,2,3,11)]
+
+data1 <- subset(data1, carb > 4)
