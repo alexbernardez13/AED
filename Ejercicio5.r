@@ -52,5 +52,5 @@ A %>%
 #edad, mientras que los rojos, representan el percentil 95 para cada grupo.
 #La línea negra representa el nivel de IMC en el cual, un adulto, se considera
 #que padece sobrepeso mientras que la rojo indica el nivel en el que un 
-#adulto padece obesidad."
+#adulto padece obesidad.
 
