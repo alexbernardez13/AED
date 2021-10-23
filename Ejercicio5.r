@@ -32,25 +32,24 @@ Tabla4
 #5.3
 
 library(tidyverse)
-library(ggalt)
-
 A <-rownames_to_column(as.data.frame(Tabla4))
 A$rowname <- factor(A$rowname,levels =  c("(5-6]","(6-7]","(7-8]","(8-9]","(9-10]","(10-11]","(11-12]","(12-13]","(13-14]","(14-15]","(15-16]","(16-17]","(17-18]","(18-19]") )
 
-A %>% 
-  ggplot() +
-  geom_dumbbell(aes(x=Sobrepeso, xend=Obesidad, y=rowname),size_x = 3,size_xend = 3,colour_x = "black",colour_xend = "red",show.legend = TRUE) +
-  ylab("Rango de Edades")+
-  xlab("IMC")+
-  coord_flip()+
+A %>%
+  ggplot(aes(y=as.factor(A$rowname)))+
+  geom_point(aes(x=A$Sobrepeso),color = "black",size = 3)+
+  geom_point(aes(x=A$Obesidad),color = "red" , size = 3)+
   geom_vline(xintercept = 25,color ="black",size = 1.5 )+
   geom_vline(xintercept = 30, color = "red",size = 1.5)+
+  theme_bw()+
   expand_limits(x = c(15,30))+
-  theme_bw()
+  ylab("Rango de Edades")+
+  xlab("IMC")+
+  coord_flip()
 
 #Los puntos negros representan el percentil 85 del IMC para cada grupo de 
 #edad, mientras que los rojos, representan el percentil 95 para cada grupo.
-#La línea negra representa el nivel de IMC en el cual, un adulto, se considera
+#La línea negra representa el nivel de IMC en el cual un adulto se considera
 #que padece sobrepeso mientras que la rojo indica el nivel en el que un 
 #adulto padece obesidad.
 
