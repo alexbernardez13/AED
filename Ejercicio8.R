@@ -28,3 +28,10 @@ Integraln(a=0,b=1,n=100) # n = 100
 Integraln(a=0,b=1,n=500) # n = 500
 Integraln(a=0,b=1,n=1000)# n = 1000
 Integraln(a=0,b=1,n=5000)# n = 5000
+
+
+# Resolución de integrales (último apartado)
+f1=function(x)x**2
+integrate(f1,0,1)
+f2=function(x) exp(-0.5*x**2)
+integrate(f2,0,1.5)
