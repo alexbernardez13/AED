@@ -1,5 +1,3 @@
-#Integral 1
-
 Integral <- function(f,a,b,n=NULL,alfa=0.05,conf.level=0.95,l=0.01) {
   M <- max((seq(a,b)^2)) #Cota máxima
   Q <- qnorm(1-alfa/2) #Qnorm
@@ -7,7 +5,7 @@ Integral <- function(f,a,b,n=NULL,alfa=0.05,conf.level=0.95,l=0.01) {
   u <- runif(n,min=a,max=b) #Vector u[a,b]
   v <- runif(n,min=0,max=M) #Vector v[0,M]
   p <- mean(v <= u^2) # Proporción de valores de u menores que V
-  integral <- p*M*(1-0) #Aproximación integral
+  integral <- p*M*(b-a) #Aproximación integral
   li= p*M*(b-a)-M*(b-a)*Q*sqrt(p*(1-p)/1000) #Límite inferior 
   ls= p*M*(b-a)+M*(b-a)*Q*sqrt(p*(1-p)/1000) #Límite superior
 }
@@ -20,10 +18,9 @@ Integraln <- function(f,a,b,n,alfa=0.05,conf.level=0.95,l=0.01) {
   u <- runif(n,min=a,max=b) #Vector u[a,b]
   v <- runif(n,min=0,max=M) #Vector v[0,M]
   p <- mean(v <= u^2) # Proporción de valores de u menores que V
-  integral <- p*M*(1-0) #Aproximación integral
+  integral <- p*M*(b-a) #Aproximación integral
   li= p*M*(b-a)-M*(b-a)*Q*sqrt(p*(1-p)/1000) #Límite inferior 
   ls= p*M*(b-a)+M*(b-a)*Q*sqrt(p*(1-p)/1000) #Límite superior
-  print(integral)
 }
 
 
